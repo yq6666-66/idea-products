@@ -20,6 +20,6 @@ python3 scan.py /path/to/repo
 
 ```bash
 cd products/stale-todos
-pip install -r requirements-dev.txt
-python3 -m pytest -q
+python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+.venv/bin/python -m pytest -q
 ```
