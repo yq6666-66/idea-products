@@ -1,0 +1,33 @@
+name: product-pytest
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "product/**"
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: run product pytest suites
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          suites=(products/*/pytest.ini)
+          if [ ${#suites[@]} -eq 0 ]; then
+            echo "no product pytest.ini found; nothing to run"
+            exit 0
+          fi
+          for ini in "${suites[@]}"; do
+            dir=$(dirname "$ini")
+            echo "::group::$dir"
+            python3 -m venv "$dir/.venv"
+            "$dir/.venv/bin/pip" install -q -r "$dir/requirements-dev.txt"
+            "$dir/.venv/bin/python" -m pytest -q "$dir"
+            echo "::endgroup::"
+          done
