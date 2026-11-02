@@ -19,5 +19,7 @@ python3 scan.py /path/to/repo
 ## 自测
 
 ```bash
-cd products/stale-todos && python3 -m pytest -q
+cd products/stale-todos
+pip install -r requirements-dev.txt
+python3 -m pytest -q
 ```
