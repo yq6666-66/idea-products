@@ -134,7 +134,12 @@ def main() -> None:
     current = run(repo, "branch", "--show-current").strip()
     rows = []
     for line in merged_out:
-        name = line.strip().lstrip("* ").strip()
+        name = line.strip()
+        # git prints "* " for current and "+ " for checked out in another worktree
+        if name.startswith("* ") or name.startswith("+ "):
+            name = name[2:].strip()
+        else:
+            name = name.lstrip()
         if not name or name == base:
             continue
         if name.startswith("("):
