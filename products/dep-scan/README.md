@@ -9,3 +9,7 @@
 5. 注意：这和 10 月 30 日健康看板里的依赖项有重叠，本产品是把那一项单独抽出来的窄版，只做依赖速查，不做看板的其他健康项。
 
 试跑：对去黑点仓库的本地副本实测，该仓库无 `package.json`、无 `requirements.txt`，脚本如实报“无”且未下过期结论，这是正确的空结果；对一个真实的 requirements.txt 实测，requests 已装 2.31.0、最新 2.34.2，标 OUTDATED，numpy 已装 1.26.4、最新 2.5.4，标 OUTDATED，不存在的包标 UNKNOWN；pip audit 在该环境不可用，明说跳过。
+
+演示：`python3 demo.py`，只在它自己的临时目录里造一个示例项目，打印依赖报告，然后清掉临时目录，不升级任何东西。
+
+自测：`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt && .venv/bin/python -m pytest -q`
