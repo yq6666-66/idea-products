@@ -69,6 +69,14 @@ def last_commit_time(repo: Path, ref: str) -> str:
     return out or "?"
 
 
+def normalize_merged_branch_line(line: str) -> str:
+    """Strip git branch --merged markers: '* ' current, '+ ' other worktree."""
+    name = line.strip()
+    if name.startswith("* ") or name.startswith("+ "):
+        return name[2:].strip()
+    return name.lstrip()
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("repo", type=Path, help="path to git repo")
@@ -134,12 +142,8 @@ def main() -> None:
     current = run(repo, "branch", "--show-current").strip()
     rows = []
     for line in merged_out:
-        name = line.strip()
         # git prints "* " for current and "+ " for checked out in another worktree
-        if name.startswith("* ") or name.startswith("+ "):
-            name = name[2:].strip()
-        else:
-            name = name.lstrip()
+        name = normalize_merged_branch_line(line)
         if not name or name == base:
             continue
         if name.startswith("("):

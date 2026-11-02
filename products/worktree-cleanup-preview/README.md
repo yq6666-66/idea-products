@@ -13,3 +13,12 @@ python3 preview.py /path/to/repo
 ## 试跑建议
 
 先在多分支仓库（例如 no-markdown-bullets）上跑一遍，核对「已合并分支」是否准确。
+
+## 自测
+
+```bash
+cd products/worktree-cleanup-preview
+python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+.venv/bin/python -m pytest -q
+```
+
