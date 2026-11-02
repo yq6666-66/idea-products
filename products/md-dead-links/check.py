@@ -77,6 +77,11 @@ def main() -> None:
     ap.add_argument("repo", type=Path)
     ap.add_argument("--timeout", type=float, default=8.0)
     ap.add_argument("--jobs", type=int, default=8)
+    ap.add_argument(
+        "--warn-only",
+        action="store_true",
+        help="print broken links but always exit 0 (default: exit 1 if any broken)",
+    )
     args = ap.parse_args()
     repo = args.repo.resolve()
     md_files = [p for p in repo.rglob("*.md") if ".git" not in p.parts]
@@ -117,6 +122,8 @@ def main() -> None:
     for status, md, url, detail in sorted(broken, key=lambda x: (x[0], str(x[1]), x[2])):
         rel = md.relative_to(repo)
         print(f"- [{status}] {rel}: {url} ({detail})")
+    if not args.warn_only:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

@@ -8,6 +8,7 @@
 
 ```bash
 python3 check.py /path/to/repo
+python3 check.py /path/to/repo --warn-only  # 只出报告、exit 0
 ```
 
 ## 试跑建议
