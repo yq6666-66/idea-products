@@ -14,3 +14,12 @@ python3 check.py /path/to/repo --warn-only  # 只出报告、exit 0
 ## 试跑建议
 
 先拿文档多的仓库（例如 no-markdown-bullets）跑一遍，抽查报出的断链是否属实。
+
+## 自测
+
+```bash
+cd products/md-dead-links
+python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+.venv/bin/python -m pytest -q
+```
+
