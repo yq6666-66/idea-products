@@ -8,3 +8,7 @@
 4. 边界：本机结果只对运行它的机器有效。
 
 试跑：2026-11-02 在 Linux VM 上，临时 HTTP 服务起起来后正确报出 LISTENING、属主 python3 和 pid，`--common` 五个端口在 VM 上均为 free。Windows 上的 7897 代理端口和开发服务器端口仍需在 Windows 上单独跑，VM 上 7897 空闲不等于 Windows 上 Surge 的状态。
+
+演示：`python3 demo.py`，只启动它自己的临时 HTTP 服务，打印该端口和 --common 的结果，然后停掉自己的服务，不碰其他进程。
+
+自测：`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt && .venv/bin/python -m pytest -q`
