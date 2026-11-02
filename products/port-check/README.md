@@ -7,6 +7,8 @@
 3. 只读：找不到进程就写“进程未知”；只查命令行里给出的端口，不动其他配置。
 4. 边界：本机结果只对运行它的机器有效。
 
-演示：`python3 demo.py`，只启动它自己的临时 HTTP 服务，打印该端口和 --common 的结果，然后停掉自己的服务，不碰其他进程。
+试跑：临时 HTTP 服务起起来后正确报出 LISTENING、属主 python3 和 pid，`--common` 五个端口在测试环境上均为 free。本机以外的端口状态仍需在那台机器上单独跑。
+
+演示：[demo.py](./demo.py)，运行 `python3 demo.py`，只启动它自己的临时 HTTP 服务，打印该端口和 --common 的结果，然后停掉自己的服务，不碰其他进程。
 
 自测：`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt && .venv/bin/python -m pytest -q`
