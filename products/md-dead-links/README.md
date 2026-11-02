@@ -11,9 +11,23 @@ python3 check.py /path/to/repo
 python3 check.py /path/to/repo --warn-only  # 只出报告、exit 0
 ```
 
-## 试跑建议
+## 演示
 
-先拿文档多的仓库（例如 no-markdown-bullets）跑一遍，抽查报出的断链是否属实。
+`demo/` 里有两份 Markdown：`./ok.md` 是好的本地链接，`./missing.md` 不存在，外链指向保留域名 `example.invalid`（解析失败，当成断链）。
+
+在本目录执行：
+
+```bash
+python3 check.py demo
+python3 check.py demo --warn-only
+```
+
+有断链时默认 exit 1。`--warn-only` 打同一份报告，exit 0。断链两行类似（前面的 `generated_at` 会变）：
+
+```
+- [dead] README.md: ./missing.md (missing-file)
+- [dead] README.md: https://example.invalid/md-dead-links-demo (URLError)
+```
 
 ## 自测
 
