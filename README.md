@@ -10,9 +10,9 @@
 
 见 [`products/`](./products/)，每个子目录是一个独立产品：
 
-1. [`log-slimmer`](./products/log-slimmer/)：日志按大小列出，超期清单先 dry-run，备份后才归档，原文件不删。演示：[demo.py](./products/log-slimmer/demo.py)。
-2. [`dep-scan`](./products/dep-scan/)：扫一个项目的依赖，对照已装与最新版，漏洞按严重程度排序，只出升级清单，不自动升级。演示：[demo.py](./products/dep-scan/demo.py)。
-3. [`port-check`](./products/port-check/)：输入端口报出属主进程和启动命令，`--common` 查常用开发端口，不杀进程。演示：[demo.py](./products/port-check/demo.py)。
+1. [`log-slimmer`](./products/log-slimmer/)：日志按大小列出，超期清单先 dry-run，备份后才归档，原文件不删。演示：[demo.py](./products/log-slimmer/demo.py)，视频：[演示](./products/log-slimmer/videos/demo.mp4)、[技术](./products/log-slimmer/videos/technical.mp4)。
+2. [`dep-scan`](./products/dep-scan/)：扫一个项目的依赖，对照已装与最新版，漏洞按严重程度排序，只出升级清单，不自动升级。演示：[demo.py](./products/dep-scan/demo.py)，视频：[演示](./products/dep-scan/videos/demo.mp4)、[技术](./products/dep-scan/videos/technical.mp4)。
+3. [`port-check`](./products/port-check/)：输入端口报出属主进程和启动命令，`--common` 查常用开发端口，不杀进程。演示：[demo.py](./products/port-check/demo.py)，视频：[演示](./products/port-check/videos/demo.mp4)、[技术](./products/port-check/videos/technical.mp4)。
 4. [`md-dead-links`](./products/md-dead-links/)：扫仓库 Markdown 的本地与外链，报告断链和超时，不改文件。
    演示：<https://github.com/yq6666-66/idea-products/tree/main/products/md-dead-links/demo>（在产品目录执行 `python3 check.py demo`）
 5. [`worktree-cleanup-preview`](./products/worktree-cleanup-preview/)：只读预览可能没用的 worktree 和已合进主线的本地分支，不删除任何东西。

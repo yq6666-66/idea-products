@@ -10,5 +10,6 @@
 试跑：示例项目上，requests 已装 2.31.0、最新 2.34.2，标 OUTDATED；numpy 已装 1.26.4、最新 2.5.4，标 OUTDATED；不存在的包标 UNKNOWN；无清单的项目如实报“无”且不下过期结论；pip audit 在该环境不可用，明说跳过。
 
 演示：[demo.py](./demo.py)，运行 `python3 demo.py`，只在它自己的临时目录里造一个示例项目，打印依赖报告，然后清掉临时目录，不升级任何东西。
+视频：[演示视频](./videos/demo.mp4)、[技术视频](./videos/technical.mp4)（AI 生成的讲解视频，非真实录屏）。
 
 自测：`python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt && .venv/bin/python -m pytest -q`
