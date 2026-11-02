@@ -4,7 +4,7 @@
 
 ```
 products/<name>/
-  README.md   # 一句话用途、怎么跑、演示
+  README.md   # 一句话用途、怎么跑、自包含演示或夹具
   <script>    # 主入口
 ```
 

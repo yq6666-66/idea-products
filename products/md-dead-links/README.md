@@ -13,6 +13,8 @@ python3 check.py /path/to/repo --warn-only  # 只出报告、exit 0
 
 ## 演示
 
+演示目录：<https://github.com/yq6666-66/idea-products/tree/main/products/md-dead-links/demo>
+
 `demo/` 里有两份 Markdown：`./ok.md` 是好的本地链接，`./missing.md` 不存在，外链指向保留域名 `example.invalid`（解析失败，当成断链）。
 
 在本目录执行：

@@ -12,6 +12,8 @@ python3 preview.py /path/to/repo
 
 ## 演示
 
+演示入口：<https://github.com/yq6666-66/idea-products/blob/main/products/worktree-cleanup-preview/demo/run.py>
+
 `demo/run.py` 在临时目录建一个本地仓库：分支 `feature` 已合并进 `main`，另有一个仍在的 worktree，以及一个目录已删掉的游离 worktree。不访问网络，跑完就删。需要本机有 `git`。在本目录执行：
 
 ```bash

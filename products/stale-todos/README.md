@@ -12,6 +12,8 @@ python3 scan.py /path/to/repo
 
 ## 演示
 
+演示入口：<https://github.com/yq6666-66/idea-products/blob/main/products/stale-todos/demo/run.py>
+
 `demo/run.py` 在临时目录建一个小仓库，写入三条不同日期的注释（2024-01-15 的 TODO、2025-06-01 的 FIXME、2026-11-01 的 TODO），外加一行字符串里的 TODO。不访问网络。需要本机有 `git`。在本目录执行：
 
 ```bash
