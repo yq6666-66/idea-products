@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "demo-fs": {
+      "command": "npx",
+      "args": ["-y", "@example/mcp-fs"
+    }
+  }
+}
