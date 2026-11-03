@@ -1,0 +1,14 @@
+{
+  "echo": {
+    "schema_hash": "aaa111",
+    "description_hash": "d1"
+  },
+  "search": {
+    "schema_hash": "bbb222",
+    "description_hash": "d2"
+  },
+  "legacy_ping": {
+    "schema_hash": "ccc333",
+    "description_hash": "d3"
+  }
+}

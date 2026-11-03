@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "demo-fs": {
+      "command": "npx",
+      "args": ["-y", "@example/mcp-fs", "/tmp/demo"],
+      "env": {
+        "DEMO_TOKEN": "sample-not-a-secret"
+      }
+    }
+  }
+}

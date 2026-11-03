@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "demo-notes": {
+      "command": "uvx",
+      "args": ["example-mcp-notes"],
+      "env": {
+        "API_KEY": "sample-not-a-secret"
+      }
+    }
+  }
+}

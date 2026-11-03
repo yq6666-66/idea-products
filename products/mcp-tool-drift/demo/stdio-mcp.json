@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "fake": {
+      "command": "python3",
+      "args": ["demo/fake_mcp.py"],
+      "env": {
+        "DEMO_TOKEN": "sample-not-a-secret"
+      }
+    }
+  }
+}

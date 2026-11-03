@@ -1,0 +1,14 @@
+{
+  "echo": {
+    "schema_hash": "aaa111",
+    "description_hash": "d1"
+  },
+  "search": {
+    "schema_hash": "bbb999",
+    "description_hash": "d2"
+  },
+  "list_tools": {
+    "schema_hash": "ddd444",
+    "description_hash": "d4"
+  }
+}
