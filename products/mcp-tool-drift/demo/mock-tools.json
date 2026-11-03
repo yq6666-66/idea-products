@@ -1,0 +1,26 @@
+{
+  "demo-fs": [
+    {
+      "name": "list_dir",
+      "description": "list a directory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {"type": "string"}
+        }
+      }
+    }
+  ],
+  "demo-search": [
+    {
+      "name": "search",
+      "description": "search documents",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {"type": "string"}
+        }
+      }
+    }
+  ]
+}
