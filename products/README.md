@@ -16,3 +16,4 @@ products/<name>/
 4. `md-dead-links/`：Markdown 断链与超时报告。
 5. `worktree-cleanup-preview/`：worktree 与已合并分支的只读预览。
 6. `stale-todos/`：TODO 与 FIXME 按引入年龄排序的只读扫描。
+7. `startup-cmds/`：四个文件的启动命令只读汇总，只列不执行。演示：[demo.py](./startup-cmds/demo.py)。
