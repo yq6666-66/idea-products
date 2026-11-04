@@ -20,6 +20,8 @@
 6. [`stale-todos`](./products/stale-todos/)：扫代码注释里的 TODO 与 FIXME，用 git blame 按年龄排序，只读。
    演示：<https://github.com/yq6666-66/idea-products/blob/main/products/stale-todos/demo/run.py>（在产品目录执行 `python3 demo/run.py`）
 
+7. [`startup-cmds`](./products/startup-cmds/)：进一个项目目录，一次列出 `package.json`、Makefile、justfile、`pyproject.toml` 里的启动命令，只列不执行。演示：[demo.py](./products/startup-cmds/demo.py)。
+
 ## 许可
 
 MIT。详见 [LICENSE](./LICENSE)。
