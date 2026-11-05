@@ -22,6 +22,8 @@
 
 7. [`startup-cmds`](./products/startup-cmds/)：进一个项目目录，一次列出 `package.json`、Makefile、justfile、`pyproject.toml` 里的启动命令，只列不执行。演示：[demo.py](./products/startup-cmds/demo.py)。
 
+8. [`gitignore-audit`](./products/gitignore-audit/)：双向查 `.gitignore`，一边是已入库却命中规则的文件，一边是没入库、但长得像构建产物或本地文件的文件，只列不执行。演示：[demo.py](./products/gitignore-audit/demo.py)。
+
 ## 许可
 
 MIT。详见 [LICENSE](./LICENSE)。
