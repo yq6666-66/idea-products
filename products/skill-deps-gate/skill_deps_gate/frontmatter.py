@@ -37,13 +37,20 @@ StrictLoader.add_constructor(
 )
 
 
+def _is_delimiter(line: str) -> bool:
+    text = line[:-1] if line.endswith("\n") else line
+    if text.endswith("\r"):
+        text = text[:-1]
+    return text == "---"
+
+
 def read_frontmatter(text: str) -> dict:
     lines = text.splitlines(keepends=True)
-    if not lines or lines[0].strip() != "---":
+    if not lines or not _is_delimiter(lines[0]):
         raise FrontmatterError("frontmatter 解析失败")
     closing = None
     for index in range(1, len(lines)):
-        if lines[index].strip() == "---":
+        if _is_delimiter(lines[index]):
             closing = index
             break
     if closing is None:

@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
+import stat
 import sys
 from pathlib import Path
 
 from skill_deps_gate.adapt import Adapted, DeclarationError, Refusal, adapt
 from skill_deps_gate.frontmatter import FrontmatterError, read_frontmatter
 from skill_deps_gate.match import match
-from skill_deps_gate.scan import FoundSkill, discover
+from skill_deps_gate.scan import FoundSkill, discover, supplied_path_has_symlink
 from skill_deps_gate.snapshot import SnapshotError, load_snapshot
 
-_MAX_BYTES = 1_000_000
+MAX_INPUT_BYTES = 1024 * 1024
 _HEADER = "技能\t路径\t依赖\t种类\t状态"
 
 
@@ -154,27 +155,34 @@ def _take_value(argv: list[str], index: int, flag: str) -> str:
 
 
 def _snapshot_file(raw: str) -> Path:
+    if supplied_path_has_symlink(raw):
+        raise InputError("快照路径不允许符号链接")
     path = Path(raw)
     try:
-        exists = path.exists()
-        is_file = path.is_file()
+        mode = path.lstat().st_mode
     except OSError as exc:
-        raise InputError("快照不可读") from exc
-    if not exists:
-        raise InputError("找不到快照文件")
-    if path.is_symlink():
+        raise InputError("找不到快照文件") from exc
+    if stat.S_ISLNK(mode):
         raise InputError("快照路径不允许符号链接")
-    if not is_file:
-        raise InputError("快照路径不是文件")
+    if not stat.S_ISREG(mode):
+        raise InputError("快照不是普通文件")
     return path
 
 
 def _read_text(path: Path, kind: str) -> str:
     try:
+        mode = path.lstat().st_mode
+    except OSError as exc:
+        raise InputError(f"{kind}不可读") from exc
+    if stat.S_ISLNK(mode):
+        raise InputError(f"{kind}不允许符号链接")
+    if not stat.S_ISREG(mode):
+        raise InputError(f"{kind}不是普通文件")
+    try:
         data = path.read_bytes()
     except OSError as exc:
         raise InputError(f"{kind}不可读") from exc
-    if len(data) > _MAX_BYTES:
+    if len(data) > MAX_INPUT_BYTES:
         raise InputError(f"{kind}过大")
     try:
         return data.decode("utf-8")

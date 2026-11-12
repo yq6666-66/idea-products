@@ -4,7 +4,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-ALLOWED_TOP = {"name", "description", "dependencies", "requires-mcp-servers"}
+# Keys that this gate does not evaluate. Presence is allowed so ordinary
+# skill metadata is not mistaken for a dependency dialect.
+IGNORED_TOP = {"license", "compatibility", "metadata", "allowed-tools"}
+ALLOWED_TOP = {"name", "description", "dependencies", "requires-mcp-servers"} | IGNORED_TOP
 
 
 class DeclarationError(Exception):

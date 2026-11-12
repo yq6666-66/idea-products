@@ -32,7 +32,8 @@ def load_snapshot(text: str) -> dict[str, set[str]]:
         raise SnapshotError(_NOT_ENVELOPE)
     if set(data) != {"skill_deps_gate_snapshot", "servers"}:
         raise SnapshotError("快照含不支持的字段")
-    if data["skill_deps_gate_snapshot"] != 1 or not isinstance(data["servers"], list):
+    version = data["skill_deps_gate_snapshot"]
+    if type(version) is not int or version != 1 or not isinstance(data["servers"], list):
         raise SnapshotError(_NOT_ENVELOPE)
     found: dict[str, set[str]] = {}
     for entry in data["servers"]:

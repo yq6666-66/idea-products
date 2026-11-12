@@ -158,7 +158,7 @@ class RegressionTests(unittest.TestCase):
         self.assertNotIn("满足", proc.stdout)
         huge = base / "huge"
         huge.mkdir()
-        huge.joinpath("SKILL.md").write_bytes(b"-" * (1_000_001))
+        huge.joinpath("SKILL.md").write_bytes(b"-" * (1024 * 1024 + 1))
         proc = run_cli(["--skill", str(huge), "--snapshot", "fixtures/snapshots/scan-ok.json"])
         self.assertEqual(proc.returncode, 2, proc.stderr)
         self.assertIn("过大", proc.stderr)
