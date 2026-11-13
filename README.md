@@ -26,6 +26,8 @@
 
 9. [`hardcoded-path-scan`](./products/hardcoded-path-scan/)：扫代码与配置文件里写死的绝对路径（Windows 盘符、UNC、`/home/`、`/Users/` 这一类），按文件分组列出，只读报告，不改文件。演示：[demo.py](./products/hardcoded-path-scan/demo.py)。
 
+10. [`submodule-audit`](./products/submodule-audit/)：扫一个根目录下所有本地 git 仓库，逐个回答子模块健不健康（未初始化、提交不一致、合并冲突、URL 漂移、嵌套漏初始化、远端不存在的提交、远端不可达），只读报告，不 init、不 update。演示：[demo.py](./products/submodule-audit/demo.py)。
+
 ## 许可
 
 MIT。详见 [LICENSE](./LICENSE)。
