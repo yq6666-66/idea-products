@@ -1,0 +1,17 @@
+{
+  "skill_deps_gate_snapshot": 1,
+  "servers": [
+    {
+      "server": "docs",
+      "tools": [
+        {"name": "search"}
+      ]
+    },
+    {
+      "server": "other",
+      "tools": [
+        {"name": "fetch"}
+      ]
+    }
+  ]
+}

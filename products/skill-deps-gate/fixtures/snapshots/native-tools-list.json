@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "tools": [
+      {"name": "search", "description": "docs", "inputSchema": {"type": "object"}},
+      {"name": "docs", "description": "not a server id", "inputSchema": {"type": "object"}}
+    ]
+  }
+}
