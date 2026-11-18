@@ -20,3 +20,4 @@ products/<name>/
 8. `gitignore-audit/`：已入库命中规则与未入库疑似产物的双向只读审计，只列不执行。演示：[demo.py](./gitignore-audit/demo.py)。
 9. `hardcoded-path-scan/`：写死绝对路径的只读扫描，按文件分组列出。演示：[demo.py](./hardcoded-path-scan/demo.py)。
 10. `submodule-audit/`：跨仓库子模块健康只读审计，按严重程度排序。演示：[demo.py](./submodule-audit/demo.py)。
+11. `qq-persona-audit/`：QQ 拟人人设只读体检，含 SKILL.md、检查清单与审计脚本。演示：[demo.py](./qq-persona-audit/demo.py)。
